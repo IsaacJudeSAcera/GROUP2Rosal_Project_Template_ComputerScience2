@@ -128,7 +128,7 @@ START PROGRAM
 
         ELSE:
             PRINT "Invalid choice. Try again."
-        END IF
+       
 
     END LOOP
 
