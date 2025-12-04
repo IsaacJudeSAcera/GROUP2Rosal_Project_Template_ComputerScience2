@@ -1,0 +1,135 @@
+START PROGRAM
+
+    LOAD attendance_data from JSON file
+
+    FUNCTION calculate_average_present():
+        total_present = 0
+        day_count = number of dates in dataset
+        
+        FOR each date in attendance_data:
+            present_count = count of students marked "Present" on that date
+            total_present = total_present + present_count
+        END FOR
+
+        RETURN total_present / day_count
+    END FUNCTION
+
+
+    FUNCTION calculate_average_absent():
+        total_absent = 0
+        day_count = number of dates in dataset
+        
+        FOR each date in attendance_data:
+            absent_count = count of students NOT marked "Present"
+            total_absent = total_absent + absent_count
+        END FOR
+
+        RETURN total_absent / day_count
+    END FUNCTION
+
+
+    FUNCTION find_lowest_attendance_day():
+        lowest_day = ""
+        lowest_count = very large number
+
+        FOR each date in attendance_data:
+            present_count = number of students marked "Present"
+            IF present_count < lowest_count:
+                lowest_count = present_count
+                lowest_day = date
+            END IF
+        END FOR
+
+        RETURN lowest_day
+    END FUNCTION
+
+
+    FUNCTION find_highest_attendance_day():
+        highest_day = ""
+        highest_count = -1
+
+        FOR each date in attendance_data:
+            present_count = number of students marked "Present"
+            IF present_count > highest_count:
+                highest_count = present_count
+                highest_day = date
+            END IF
+        END FOR
+
+        RETURN highest_day
+    END FUNCTION
+
+
+    FUNCTION find_most_common_absence_type():
+        dictionary absence_counter = empty
+
+        FOR each student in dataset:
+            FOR each date_record in student's attendance:
+                IF status is not "Present":
+                    increase count of that status in absence_counter
+                END IF
+            END FOR
+        END FOR
+
+        RETURN absence_type with highest count in absence_counter
+    END FUNCTION
+
+
+    FUNCTION add_new_attendance_record():
+        ASK user for student_id
+        ASK user for student_name
+        ASK user for number_of_dates_to_add
+
+        CREATE new student_entry object
+
+        FOR i from 1 to number_of_dates_to_add:
+            ASK for date
+            ASK for attendance_status
+            STORE in new student_entry
+        END FOR
+
+        ADD new student_entry to dataset
+        SAVE updated dataset to JSON
+    END FUNCTION
+
+
+    LOOP FOREVER:
+        DISPLAY menu:
+            1. Average students present per day
+            2. Date with lowest attendance
+            3. Date with highest attendance
+            4. Average number of absences per day
+            5. Most common type of absence
+            6. Add new attendance data
+            7. Exit
+
+        GET user_choice
+
+        IF user_choice == 1:
+            PRINT calculate_average_present()
+
+        ELSE IF user_choice == 2:
+            PRINT find_lowest_attendance_day()
+
+        ELSE IF user_choice == 3:
+            PRINT find_highest_attendance_day()
+
+        ELSE IF user_choice == 4:
+            PRINT calculate_average_absent()
+
+        ELSE IF user_choice == 5:
+            PRINT find_most_common_absence_type()
+
+        ELSE IF user_choice == 6:
+            CALL add_new_attendance_record()
+
+        ELSE IF user_choice == 7:
+            EXIT LOOP
+
+        ELSE:
+            PRINT "Invalid choice. Try again."
+        END IF
+
+    END LOOP
+
+END PROGRAM
