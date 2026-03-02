@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "rosal-attendance-db-61a19",
+  "private_key_id": "ff70309c7457537daaac1cc0cf943a8a11b23a6d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC6OjqKDdjkYPgp\n+I35jEHiP7fq1HETv/nbn0HVwu+4+K7jNAeaP/CI4rTQXTGNt1M1CKnRhH+SEvyK\nAMNggsXnhwoWcU2TZO1hKt/wOU39xxVF2bYyRi7P9ohGckK3vSjAoN2+z/9Li+Sz\njN4vfKDvkfn5P9r7jaWJoWND8meuaWpP7IJPG25A4DUp4FpwJrAt/6Y4cpaaJ2dX\n9anjRuvcuEwwpB+hLGClkWs3s1du+YuxXaSmsUooart4HiiEi4RjVC4cIaBfsMRB\nHxESg74zYNg5AK7IozthxMSrGwqjPnxorhg+g0ZWOhMeqL5elnrHlTj9mqTc1RYX\nonP0lZnZAgMBAAECggEAVBvbd6HEbXVscAxeFzDlSsnLh8i2X5yrvSkjI2gdPFY5\nKs3Dh0PMoA6AasFEkcSUVJYamNH2iiOAItYwZ+T4fFbt0/ANgP4rBmFGbil7k5x4\ne6lWVEOFfhDTQLn3byQEhWfCbx1jKRxASWXcrebkiv9Lvuq7vTSe6NfWzQftEwSt\nIPyPjaCUh5nBAxM47NP43COxZN8o7SuWj8tLl9AudaHx6E8QNqYG6ppAWPBq8DfA\nIlwoo4fjoaAnytDwKc1zqdImZqQE9WsDjW6F9JQMbP0CUMk4djHQW26NnOSFSuk2\nI7In59zWIvI/radf+38YmecXGYfKxP351RAeW4hepwKBgQDfrfbRq1kFINeGpS5P\njdcPvgcal1BxUVvfxRWSickfkxAOhFaB1G+tQ1x4pH59nnDOTefDPGf+MWci4ER3\nnaOKHc7mciAC8B9MtpSz+M35wUt9fe2eAEJF0fp7y15/UlHZgzzIYRYpeM1ISllI\ns03s/LvYweOZJ041SDDumIJ2/wKBgQDVIuPWqrQH2b89T7lSCqMOQSZxvRuBTxqt\nUW5guZpjeGMwRzh8uZUQDwRWYoHSZIss+6NHLxSr92V8+BrpaT8wI2Ksl89Xzynh\nbuO+4OVkVM2xNAO7wdVji9jbhOJTKhY/4rqKWi29HJepzgSXFbXh5/+MHtrctGru\nXNa0MQuHJwKBgCM/D3CUlo93UF74Mmb4y9XANPBcvaFNl7OYI8EWkym1i8ct1U/a\nAMsFnVGpYgE7cT0hC485Oo3UjRLy0fcjUPzXm522iBLOcbAt6Rq+7v4XFmUs7b+C\n/O5xmw3cywQ3HYyv4GkW214nmfl1NcJ99p6MaLFMRCgDCJDe0k8WmyBTAoGAHxqE\nXWNz+mFQg0YLKWnb+cyQK7EJPomovvpPPVZYrYN4FieOmsUKd9l5LJIbl/SMSvg+\nD7lTLvVfnikm5EEzs3a2g7Fz1MCqv/dKzSRM1aN6kQ2iLdhPp8NU1lRCIxjVPmV8\nC4y1eA+gImuqR9InRNxycqReFC9QG5D41DsED6kCgYAE+60qlNsTTG/MXq1MZhmz\nfEKBQUi7wGipy730Lo6fxb4713qr+I09aBQeYJVGtHmn3sc4yq5hKuQicppvAZDk\nR2q98SxiZW/qUmQ4Sj+T8A30YKNrYyELsxh6IgZvLmPPoqu10zBYSPEpljwlbrnV\n2M+vlbdEAzKk6Ua+DMiz1w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@rosal-attendance-db-61a19.iam.gserviceaccount.com",
+  "client_id": "118028987945715474918",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40rosal-attendance-db-61a19.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
