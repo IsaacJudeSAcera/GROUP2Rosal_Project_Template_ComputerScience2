@@ -1,4 +1,4 @@
-Members: /n
+Members: 
 Remgie Faye A. Patenio - Proposal, psuedocode, firebase
 Karl Gian T. Sabud - Proposal, psuedocode, colab notebook
 Isaac Jude Niño S. Acera - colab code, proposal, flowchart,
