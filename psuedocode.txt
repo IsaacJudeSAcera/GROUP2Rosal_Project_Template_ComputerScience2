@@ -1,135 +1,121 @@
-START PROGRAM
+START
 
-    LOAD attendance_data from JSON file
+SET database reference to "attendance"
 
-    FUNCTION calculate_average_present():
-        total_present = 0
-        day_count = number of dates in dataset
-        
-        FOR each date in attendance_data:
-            present_count = count of students marked "Present" on that date
-            total_present = total_present + present_count
-        END FOR
+WHILE TRUE
+    DISPLAY Main Menu:
+        1. Display Students
+        2. Add Student
+        3. Update Student
+        4. Delete Student
+        5. Features
+        6. Exit
 
-        RETURN total_present / day_count
-    END FUNCTION
+    INPUT choice
 
-
-    FUNCTION calculate_average_absent():
-        total_absent = 0
-        day_count = number of dates in dataset
-        
-        FOR each date in attendance_data:
-            absent_count = count of students NOT marked "Present"
-            total_absent = total_absent + absent_count
-        END FOR
-
-        RETURN total_absent / day_count
-    END FUNCTION
-
-
-    FUNCTION find_lowest_attendance_day():
-        lowest_day = ""
-        lowest_count = very large number
-
-        FOR each date in attendance_data:
-            present_count = number of students marked "Present"
-            IF present_count < lowest_count:
-                lowest_count = present_count
-                lowest_day = date
-            END IF
-        END FOR
-
-        RETURN lowest_day
-    END FUNCTION
-
-
-    FUNCTION find_highest_attendance_day():
-        highest_day = ""
-        highest_count = -1
-
-        FOR each date in attendance_data:
-            present_count = number of students marked "Present"
-            IF present_count > highest_count:
-                highest_count = present_count
-                highest_day = date
-            END IF
-        END FOR
-
-        RETURN highest_day
-    END FUNCTION
-
-
-    FUNCTION find_most_common_absence_type():
-        dictionary absence_counter = empty
-
-        FOR each student in dataset:
-            FOR each date_record in student's attendance:
-                IF status is not "Present":
-                    increase count of that status in absence_counter
-                END IF
+    IF choice = 1 THEN
+        GET all students from database
+        IF data exists THEN
+            FOR EACH student
+                DISPLAY ID, Name, and Dates with Status
             END FOR
-        END FOR
+        ELSE
+            DISPLAY "No students found"
+        END IF
 
-        RETURN absence_type with highest count in absence_counter
-    END FUNCTION
+    ELSE IF choice = 2 THEN
+        INPUT student ID and name
+        CREATE empty date list
 
+        REPEAT
+            INPUT date (or "done")
+            IF "done" THEN EXIT loop
+            INPUT status
+            ADD (date, status) to list
+        UNTIL done
 
-    FUNCTION add_new_attendance_record():
-        ASK user for student_id
-        ASK user for student_name
-        ASK user for number_of_dates_to_add
+        SAVE student to database
+        DISPLAY "Student added"
 
-        CREATE new student_entry object
+    ELSE IF choice = 3 THEN
+        INPUT student ID
+        GET student data
 
-        FOR i from 1 to number_of_dates_to_add:
-            ASK for date
-            ASK for attendance_status
-            STORE in new student_entry
-        END FOR
+        IF student exists THEN
+            DISPLAY current details
 
-        ADD new student_entry to dataset
-        SAVE updated dataset to JSON
-    END FUNCTION
+            INPUT new name (optional)
+            IF given THEN UPDATE name
 
+            ASK if update dates
+            IF yes THEN
+                CREATE new date list
+                REPEAT date input process
+                UPDATE dates
+            END IF
 
-    LOOP FOREVER:
-        DISPLAY menu:
-            1. Average students present per day
-            2. Date with lowest attendance
-            3. Date with highest attendance
-            4. Average number of absences per day
-            5. Most common type of absence
-            6. Add new attendance data
-            7. Exit
+            DISPLAY "Student updated"
+        ELSE
+            DISPLAY "Student not found"
+        END IF
 
-        GET user_choice
+    ELSE IF choice = 4 THEN
+        INPUT student ID
+        GET student data
 
-        IF user_choice == 1:
-            PRINT calculate_average_present()
+        IF student exists THEN
+            ASK confirmation
+            IF yes THEN
+                DELETE student
+                DISPLAY "Deleted"
+            ELSE
+                DISPLAY "Cancelled"
+            END IF
+        ELSE
+            DISPLAY "Student not found"
+        END IF
 
-        ELSE IF user_choice == 2:
-            PRINT find_lowest_attendance_day()
+    ELSE IF choice = 5 THEN
+        WHILE TRUE
+            DISPLAY Features Menu:
+                1. Lowest Attendance Dates
+                2. Highest Attendance Dates
+                3. Average Absents per Day
+                6. Back
 
-        ELSE IF user_choice == 3:
-            PRINT find_highest_attendance_day()
+            INPUT feature_choice
 
-        ELSE IF user_choice == 4:
-            PRINT calculate_average_absent()
+            IF feature_choice = 1 THEN
+                COUNT "Present" per date
+                FIND minimum
+                DISPLAY lowest attendance dates
 
-        ELSE IF user_choice == 5:
-            PRINT find_most_common_absence_type()
+            ELSE IF feature_choice = 2 THEN
+                COUNT "Present" per date
+                FIND maximum
+                DISPLAY highest attendance dates
 
-        ELSE IF user_choice == 6:
-            CALL add_new_attendance_record()
+            ELSE IF feature_choice = 3 THEN
+                COUNT absences (Absent, Tardy, Cut Class)
+                COUNT unique dates
+                COMPUTE average = total / dates
+                DISPLAY result
 
-        ELSE IF user_choice == 7:
-            EXIT LOOP
+            ELSE IF feature_choice = 6 THEN
+                BREAK (return to main menu)
 
-        ELSE:
-            PRINT "Invalid choice. Try again."
-       
+            ELSE
+                DISPLAY "Invalid choice"
+            END IF
+        END WHILE
 
-    END LOOP
+    ELSE IF choice = 6 THEN
+        EXIT program
 
-END PROGRAM
+    ELSE
+        DISPLAY "Invalid choice"
+    END IF
+
+END WHILE
+
+END
